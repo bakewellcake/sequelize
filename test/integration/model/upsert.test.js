@@ -81,7 +81,7 @@ describe(Support.getTestDialectTeaser('Model'), () => {
         }).then(user => {
           expect(user.createdAt).to.be.ok;
           expect(user.username).to.equal('doe');
-          expect(user.updatedAt).to.be.afterTime(user.createdAt);
+          expect(user.updatedAt).to.be.beforeTime(user.createdAt);
         });
       });
 
@@ -106,7 +106,7 @@ describe(Support.getTestDialectTeaser('Model'), () => {
         }).then(user => {
           expect(user.createdAt).to.be.ok;
           expect(user.username).to.equal('doe');
-          expect(user.updatedAt).to.be.afterTime(user.createdAt);
+          expect(user.updatedAt).to.be.beforeTime(user.createdAt);
         });
       });
 
@@ -172,7 +172,7 @@ describe(Support.getTestDialectTeaser('Model'), () => {
         }).then(user1 => {
           expect(user1.createdAt).to.be.ok;
           expect(user1.username).to.equal('doe');
-          expect(user1.updatedAt).to.be.afterTime(user1.createdAt);
+          expect(user1.updatedAt).to.be.beforeTime(user1.createdAt);
 
           return User.findOne({ where: { a: 'a', b: 'a' } });
         }).then(user2 => {
@@ -241,7 +241,7 @@ describe(Support.getTestDialectTeaser('Model'), () => {
           expect(user.createdAt).to.be.ok;
           expect(user.username).to.equal('doe');
           expect(user.blob.toString()).to.equal('andrea');
-          expect(user.updatedAt).to.be.afterTime(user.createdAt);
+          expect(user.updatedAt).to.be.beforeTime(user.createdAt);
         });
       });
 
@@ -407,7 +407,7 @@ describe(Support.getTestDialectTeaser('Model'), () => {
             .then(user => {
               expect(user.createdAt).to.be.ok;
               expect(user.city).to.equal('New City');
-              expect(user.updatedAt).to.be.afterTime(user.createdAt);
+              expect(user.updatedAt).to.be.beforeTime(user.createdAt);
             });
         });
       });

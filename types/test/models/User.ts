@@ -66,7 +66,7 @@ User.init(
 );
 
 // Hooks
-User.afterFind((users, options) => {
+User.addHook('afterFind', (users, options) => {
   console.log('found');
 });
 

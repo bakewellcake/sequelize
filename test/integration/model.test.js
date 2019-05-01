@@ -815,7 +815,7 @@ describe(Support.getTestDialectTeaser('Model'), () => {
 
   describe('save', () => {
     it('should mapping the correct fields when saving instance. see #10589', function() {
-      const User = this.sequelize.define('User', { 
+      const User = this.sequelize.define('User', {
         id3: {
           field: 'id',
           type: Sequelize.INTEGER,
@@ -862,7 +862,7 @@ describe(Support.getTestDialectTeaser('Model'), () => {
     });
 
     it('should mapping the correct fields when updating instance. see #10589', function() {
-      const User = this.sequelize.define('User', { 
+      const User = this.sequelize.define('User', {
         id3: {
           field: 'id',
           type: Sequelize.INTEGER,
@@ -1143,7 +1143,7 @@ describe(Support.getTestDialectTeaser('Model'), () => {
     });
 
     it('should properly set data when individualHooks are true', function() {
-      this.User.beforeUpdate(instance => {
+      this.User.addHook('beforeUpdate', instance => {
         instance.set('intVal', 1);
       });
 
@@ -1179,7 +1179,7 @@ describe(Support.getTestDialectTeaser('Model'), () => {
         expect(users[1].username).to.equal('Bill');
         expect(users[2].username).to.equal('Bob');
 
-        expect(users[0].updatedAt).to.be.afterTime(this.updatedAt);
+        expect(users[0].updatedAt).to.be.beforeTime(this.updatedAt);
         expect(users[2].updatedAt).to.equalTime(this.updatedAt);
       });
     });
